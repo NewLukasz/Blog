@@ -3,10 +3,10 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main">
-            <block name="blog.post.details" template="Solid_Blog::post/details.phtml"/>
+            <block name="blog.post.details" template="STLK_Blog::post/details.phtml"/>
         </referenceContainer>
         <referenceContainer name="sidebar.additional">
-            <block name="blog.post.sidebar" template="Solid_Blog::post/sidebar.phtml"/>
+            <block name="blog.post.sidebar" template="STLK_Blog::post/sidebar.phtml"/>
         </referenceContainer>
         <referenceBlock name="wishlist_sidebar" display="false"/>
         <referenceBlock name="catalog.compare.sidebar" display="false"/>
