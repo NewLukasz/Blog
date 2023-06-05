@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <referenceContainer name="sidebar.additional" display="false"/>
+    <referenceContainer name="main">
+        <block name="blog.post.list" template="Solid_Blog::post/list.phtml"/>
+    </referenceContainer>
+    <referenceBlock name="wishlist_sidebar" display="false"/>
+    <referenceBlock name="catalog.compare.sidebar" display="false"/>
 </page>
