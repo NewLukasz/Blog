@@ -1,5 +1,5 @@
 {
-  "name": "solid/module-blog",
+  "name": "stlk/magento2-module-blog",
   "version": "1.0.0",
   "type": "magento2-module",
   "require": {
