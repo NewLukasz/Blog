@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="STLK\Blog\Api\Data\PostInterface" type="STLK\Blog\Model\Post" />
+    <preference for="STLK\Blog\Api\Data\PostRepositoryInterface" type="STLK\Blog\Model\PostRepository" />
+</config>
