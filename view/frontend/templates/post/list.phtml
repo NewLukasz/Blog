@@ -9,7 +9,7 @@ $postVm = $block->getData('post_vm');
     <ul>
         <?php foreach ($postVm->getList() as $post): ?>
             <li>
-                <a href="<?= $block->getUrl('blog/post/detail', ['id' => $post->getData('id')]) ?>">
+                <a href="<?= $block->getUrl('blog/post/details', ['id' => $post->getData('id')]) ?>">
                     <?= $escaper->escapeHtml($post->getData('title')) ?>
                 </a>
             </li>
