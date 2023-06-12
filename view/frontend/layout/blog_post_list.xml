@@ -3,7 +3,11 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="main">
-            <block name="blog.post.list" template="STLK_Blog::post/list.phtml"/>
+            <block name="blog.post.list" template="STLK_Blog::post/list.phtml">
+                <arguments>
+                    <argument name="post_vm" xsi:type="object">STLK\Blog\ViewModel\Post</argument>
+                </arguments>
+            </block>
         </referenceContainer>
         <referenceBlock name="wishlist_sidebar" display="false"/>
         <referenceBlock name="catalog.compare.sidebar" display="false"/>
