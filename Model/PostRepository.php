@@ -9,24 +9,28 @@ use Magento\Framework\Exception\NoSuchEntityException;
 use STLK\Blog\Api\Data\PostInterface;
 use STLK\Blog\Api\Data\PostRepositoryInterface;
 use STLK\Blog\Model\ResourceModel\Post as PostResourceModel;
-use STLK\Blog\Model\PostFactory;
+use STLK\Blog\Model\ResourceModel\Post\CollectionFactory as PostCollectionFactory;
 use Exception;
 
 class PostRepository implements PostRepositoryInterface
 {
 
     public function __construct(
-        private PostResourceModel $postResourceModel,
-        private PostFactory $postFactory
-    )
+        private PostResourceModel     $postResourceModel,
+        private PostFactory           $postFactory,
+        private PostCollectionFactory $postCollectionFactory
+    ) {}
+
+    public function getFirstBlogPost(): PostInterface
     {
+        return $this->postCollectionFactory->create()->getFirstItem();
     }
 
     public function getById(int $id): PostInterface
     {
         $post = $this->postFactory->create();
-        $this->postResourceModel->load($post,$id);
-        if(!$post->getId()){
+        $this->postResourceModel->load($post, $id);
+        if (!$post->getId()) {
             throw new NoSuchEntityException(__('Post with id: "%1" does not exist', $id));
         }
         return $post;
@@ -34,7 +38,7 @@ class PostRepository implements PostRepositoryInterface
 
     public function save(PostInterface $post): PostInterface
     {
-        try{
+        try {
             $this->postResourceModel->save($post);
         } catch (Exception $exception) {
             throw new CouldNotSaveException(__($exception->getMessage()));
@@ -45,9 +49,9 @@ class PostRepository implements PostRepositoryInterface
     public function deleteById(int $id): bool
     {
         $post = $this->getById($id);
-        try{
+        try {
             $this->postResourceModel->delete($post);
-        } catch (Exception $exception){
+        } catch (Exception $exception) {
             throw new CouldNotDeleteException(__($exception->getMessage()));
         }
         return true;

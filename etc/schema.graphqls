@@ -1,0 +1,3 @@
+type Query {
+    getFirstContentPost: String @resolver(class: "STLK\\Blog\\Model\\Resolver\\FirstBlogPostContent") @doc(description: "Get first blog post content")
+}
