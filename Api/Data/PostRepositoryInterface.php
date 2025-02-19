@@ -34,4 +34,9 @@ interface PostRepositoryInterface
      * @throws NoSuchEntityException
      */
     public function deleteById(int $id) : bool;
+
+    /**
+     * @return PostInterface
+     */
+    public function getFirstBlogPost(): PostInterface;
 }

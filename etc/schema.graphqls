@@ -1,0 +1,12 @@
+type Query {
+    getFirstContentPost: String @resolver(class: "STLK\\Blog\\Model\\Resolver\\FirstBlogPostContent") @doc(description: "Get first blog post content"),
+    getFirstPost: Post @resolver(class: "STLK\\Blog\\Model\\Resolver\\FirstBlogPost") @doc(description: "Get first blog post"),
+    getBlogPostById(id: Int!): Post @resolver(class: "STLK\\Blog\\Model\\Resolver\\BlogPostById") @doc(description: "Get blog post by id")
+}
+
+type Post {
+    id: Int,
+    title: String,
+    content: String,
+    created_at: String
+}
